@@ -1,0 +1,20 @@
+{
+  "name": "js2video",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "@pkl",
+    "url": "https://github.com/pkl"
+  },
+  "packageManager": "pnpm@9.10.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build"
+  },
+  "dependencies": {
+    "@changesets/cli": "2.29.5",
+    "turbo": "2.5.4"
+  }
+}

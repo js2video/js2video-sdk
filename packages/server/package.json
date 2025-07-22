@@ -1,0 +1,28 @@
+{
+  "name": "@js2video/server",
+  "version": "0.0.0",
+  "type": "module",
+  "license": "MIT",
+  "repository": "js2video/js2video-sdk",
+  "author": {
+    "name": "@pkl",
+    "url": "https://github.com/pkl"
+  },
+  "exports": {
+    ".": {
+      "import": "./index.js"
+    }
+  },
+  "files": [
+    "./index.js"
+  ],
+  "scripts": {
+    "render": "node render.js"
+  },
+  "devDependencies": {
+    "puppeteer": "24.14.0"
+  },
+  "peerDependencies": {
+    "puppeteer": "24.14.0"
+  }
+}

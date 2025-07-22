@@ -1,0 +1,30 @@
+{
+  "name": "@js2video/browser",
+  "version": "0.0.0",
+  "type": "module",
+  "license": "MIT",
+  "repository": "js2video/js2video-sdk",
+  "author": {
+    "name": "@pkl",
+    "url": "https://github.com/pkl"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "./dist/index.js"
+  ],
+  "scripts": {
+    "dev": "node esbuild.config.js --watch",
+    "build": "node esbuild.config.js"
+  },
+  "devDependencies": {
+    "@zumer/snapdom": "1.9.5",
+    "canvas-confetti": "1.9.3",
+    "esbuild": "0.25.6",
+    "media-codecs": "2.0.2",
+    "mp4-muxer": "5.2.2"
+  }
+}
