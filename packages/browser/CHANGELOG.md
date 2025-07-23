@@ -1,5 +1,11 @@
 # @js2video/browser
 
+## 0.0.3
+
+### Patch Changes
+
+- 573ad5c: small fixes
+
 ## 0.0.2
 
 ### Patch Changes
