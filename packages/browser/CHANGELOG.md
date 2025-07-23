@@ -1,5 +1,11 @@
 # @js2video/browser
 
+## 0.0.2
+
+### Patch Changes
+
+- 8e6de88: test publish patch in single package
+
 ## 0.0.1
 
 ### Patch Changes
