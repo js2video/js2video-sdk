@@ -1,3 +1,5 @@
 import { exportVideo } from "./index.js";
 
-await exportVideo();
+await exportVideo({
+  videoTemplateUrl: "http://localhost:5173/",
+});

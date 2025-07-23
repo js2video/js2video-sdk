@@ -3,7 +3,7 @@ import { promises as fs } from "fs";
 import os from "os";
 import path from "path";
 
-async function exportVideo({ videoTemplateUrl = "http://localhost:5173/" }) {
+async function exportVideo({ videoTemplateUrl }) {
   console.log("export video", videoTemplateUrl);
 
   const puppeteerArgs = [
