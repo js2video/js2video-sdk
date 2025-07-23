@@ -3,10 +3,9 @@
   "changelog": "@changesets/cli/changelog",
   "fixed": [],
   "linked": [],
-  "ignored": ["client"],
+  "ignore": ["client"],
   "access": "public",
   "baseBranch": "main",
   "commit": true,
-  "updateInternalDependencies": "patch",
-  "ignore": []
+  "updateInternalDependencies": "patch"
 }
