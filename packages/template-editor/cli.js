@@ -5,11 +5,8 @@ import path from "path";
 import crypto from "crypto";
 import { fileURLToPath } from "url";
 import { execSync } from "child_process";
-import { createRequire } from "module";
 
-const require = createRequire(import.meta.url);
-
-// Resolve __dirname
+// Resolve __dirname in ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -24,16 +21,12 @@ try {
   console.log(`✅ Copied template to ./${randomName}`);
   console.log(`🌐 Serving at http://localhost:3003/${randomName}`);
 
-  // Resolve live-server CLI entry
-  const liveServerBin = require.resolve("live-server/bin/live-server.js");
-
-  // Run the live-server CLI directly via node
+  // 🔥 THIS JUST WORKS: run npx live-server from inside CLI
   execSync(
-    `${process.execPath} ${liveServerBin} ${randomName} --port=3003 --open=${randomName}`,
+    `npx --yes live-server ${randomName} --port=3003 --open=${randomName}`,
     { stdio: "inherit" }
   );
 } catch (err) {
-  console.error("❌ Failed to run:", err);
-  console.error(err);
+  console.error("❌ Failed to run:", err.message || err);
   process.exit(1);
 }
