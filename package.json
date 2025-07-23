@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "release": "release:*",
+    "release": "run-s release:*",
     "release:build": "turbo run build",
     "release:changeset": "pnpm changeset",
     "release:version": "pnpm changeset version",
