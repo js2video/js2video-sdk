@@ -5,28 +5,30 @@ import path from "path";
 import crypto from "crypto";
 import { fileURLToPath } from "url";
 import { execSync } from "child_process";
+import { createRequire } from "module";
 
-// Resolve __dirname in ESM
+const require = createRequire(import.meta.url);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Generate random filename
-const randomName =
-  "video-template-" + crypto.randomBytes(4).toString("hex") + ".html";
+// Generate random HTML filename
+const randomName = `video-template-${crypto
+  .randomBytes(4)
+  .toString("hex")}.html`;
 const srcPath = path.join(__dirname, "lib", "template.html");
 const destPath = path.join(process.cwd(), randomName);
 
-try {
-  await fs.copyFile(srcPath, destPath);
-  console.log(`✅ Copied template to ./${randomName}`);
-  console.log(`🌐 Serving at http://localhost:3003/${randomName}`);
+// Copy the template
+await fs.copyFile(srcPath, destPath);
+console.log(`✅ Copied template to ./${randomName}`);
+console.log(`🌐 Serving at http://localhost:3003/${randomName}`);
 
-  // 🔥 THIS JUST WORKS: run npx live-server from inside CLI
-  execSync(
-    `npx --yes live-server ${randomName} --port=3003 --open=${randomName}`,
-    { stdio: "inherit" }
-  );
+// ✅ Resolve and run http-server directly
+try {
+  execSync(`http-server . -p 3003 -c-1 -o ${randomName}`, {
+    stdio: "inherit",
+  });
 } catch (err) {
-  console.error("❌ Failed to run:", err.message || err);
+  console.error("❌ Failed to start http-server:", err.message);
   process.exit(1);
 }
