@@ -1,5 +1,11 @@
 # @js2video/template-editor
 
+## 0.0.4
+
+### Patch Changes
+
+- 68eb413: fix script
+
 ## 0.0.3
 
 ### Patch Changes
