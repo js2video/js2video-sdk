@@ -13,7 +13,12 @@ async function seek({ time, timeline, container }) {
   timeline.seek(time);
 }
 
-function setup({ gsap, timeline, container, params }) {
+function setup({
+  gsap,
+  timeline,
+  container = document.getElementById("video"),
+  params = {},
+}) {
   console.log("setup");
 
   const isPuppeteer = window.isPuppeteer ?? false;
