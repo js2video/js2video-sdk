@@ -5,12 +5,15 @@ import path from "path";
 import crypto from "crypto";
 import { fileURLToPath } from "url";
 import { execSync } from "child_process";
+import { createRequire } from "module";
 
-// Resolve __dirname in ESM
+const require = createRequire(import.meta.url);
+
+// Resolve __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Generate random filename like video-template-ab12cd34.html
+// Generate random filename
 const randomName =
   "video-template-" + crypto.randomBytes(4).toString("hex") + ".html";
 const srcPath = path.join(__dirname, "lib", "template.html");
@@ -20,14 +23,17 @@ try {
   await fs.copyFile(srcPath, destPath);
   console.log(`✅ Copied template to ./${randomName}`);
   console.log(`🌐 Serving at http://localhost:3003/${randomName}`);
-  // ✅ Call live-server directly instead of through npx
+
+  // Resolve live-server CLI entry
+  const liveServerBin = require.resolve("live-server/bin/live-server.js");
+
+  // Run the live-server CLI directly via node
   execSync(
-    `./node_modules/.bin/live-server ${randomName} --port=3003 --open=${randomName}`,
-    {
-      stdio: "inherit",
-    }
+    `${process.execPath} ${liveServerBin} ${randomName} --port=3003 --open=${randomName}`,
+    { stdio: "inherit" }
   );
 } catch (err) {
   console.error("❌ Failed to run:", err);
+  console.error(err);
   process.exit(1);
 }
