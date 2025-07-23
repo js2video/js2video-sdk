@@ -1,0 +1,24 @@
+{
+  "name": "@js2video/template-editor",
+  "version": "0.0.0",
+  "bin": {
+    "template": "cli.js"
+  },
+  "type": "module",
+  "license": "MIT",
+  "repository": "js2video/js2video-sdk",
+  "author": {
+    "name": "@pkl",
+    "url": "https://github.com/pkl"
+  },
+  "files": [
+    "cli.js",
+    "lib/"
+  ],
+  "scripts": {
+    "render": "node render.js"
+  },
+  "dependencies": {
+    "live-server": "1.2.2"
+  }
+}

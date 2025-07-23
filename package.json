@@ -17,7 +17,8 @@
     "release:changeset": "pnpm changeset",
     "release:version": "pnpm changeset version",
     "release:git": "git push --follow-tags",
-    "release:publish": "pnpm changeset publish"
+    "release:publish": "pnpm changeset publish",
+    "test-cli": "pnpm -F @js2video/template-editor exec node cli.js"
   },
   "devDependencies": {
     "@changesets/cli": "2.29.5",

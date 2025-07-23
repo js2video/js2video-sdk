@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JS2Video</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;  
+        width: 100vw;
+        overflow: hidden;
+        background-color: #ffffff;
+      }
+      #video {
+        width: 1920px;
+        height: 1080px;
+        background-color: aqua;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      #box {
+        width: 200px;
+        height: 200px;
+        background-color: hotpink;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <button id="export">Export</button>
+
+    <div id="video">
+      <div id="box"></div>
+    </div>
+
+    <script type="module">
+
+      import gsap from "https://esm.run/gsap@3.13.0";
+      import { GSDevTools } from "https://esm.run/gsap@3.13.0/GSDevTools";
+      import { setup } from "https://esm.run/@js2video/browser";
+
+      const params = {
+        fps: 30,
+        width: 1920,
+        height: 1080,
+      }
+
+      gsap.registerPlugin(GSDevTools);
+
+      // create main animation timeline
+      const timeline = gsap.timeline({ id: "timeline", paused: true });
+
+      // add animations
+      timeline.fromTo(
+        "#box",
+        { opacity: 0.5 },
+        { opacity: 1, scale: 2, rotation: "+=360", duration: 1, ease: "back" }
+      );
+
+      // create timeline controls
+      GSDevTools.create({ animation: timeline, id: "main" });
+
+      // setup framework
+      const destroy = setup({ gsap, timeline, params });
+
+    </script>
+  </body>
+</html>
