@@ -61,16 +61,11 @@
         { opacity: 1, scale: 2, rotation: "+=360", duration: 1, ease: "back" }
       );
 
-      // video element
-      const container = document.getElementById("video");
-
       // creat timeline controls
       GSDevTools.create({ animation: timeline, id: "main" });
 
       // setup framework
-      const destroy = setup({ gsap, timeline, container, params });
-
-      document.getElementById("export")?.addEventListener("click", window.exportVideo)
+      const destroy = setup({ gsap, timeline, params });
 
     </script>
   </body>
