@@ -4,7 +4,7 @@
   "commit": false,
   "fixed": [["@js2video/browser", "@js2video/server"]],
   "linked": [],
-  "access": "restricted",
+  "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": []
