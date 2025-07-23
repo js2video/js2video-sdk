@@ -1,5 +1,11 @@
 # @js2video/template-editor
 
+## 0.0.3
+
+### Patch Changes
+
+- 7e49fd3: fix script again...
+
 ## 0.0.2
 
 ### Patch Changes
