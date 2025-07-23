@@ -1,6 +1,6 @@
 {
   "name": "@js2video/server",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "license": "MIT",
   "repository": "js2video/js2video-sdk",
