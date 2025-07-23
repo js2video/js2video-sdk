@@ -59,7 +59,7 @@ function setup({
   );
 
   window.exportVideo = async () => {
-    let result, prevTransform, prevTransformOrigin;
+    let prevTransform, prevTransformOrigin;
     try {
       if (!isPuppeteer) {
         // store current transform styles
@@ -69,7 +69,7 @@ function setup({
         container.style.transform = "";
         container.style.transformOrigin = "";
       }
-      result = await exportVideo({
+      await exportVideo({
         puppeteer: isPuppeteer,
         timeline,
         container,
@@ -84,7 +84,7 @@ function setup({
         container.style.transformOrigin = prevTransformOrigin;
       }
     }
-    return result;
+    return;
   };
 
   // add event handler for optional html export button
