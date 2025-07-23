@@ -11,10 +11,17 @@
   "packageManager": "pnpm@9.10.0",
   "scripts": {
     "dev": "turbo run dev",
-    "build": "turbo run build"
+    "build": "turbo run build",
+    "release": "release:*",
+    "release:build": "turbo run build",
+    "release:changeset": "pnpm changeset",
+    "release:version": "pnpm changeset version",
+    "release:git": "git push --follow-tags",
+    "release:publish": "pnpm changeset publish"
   },
-  "dependencies": {
+  "devDependencies": {
     "@changesets/cli": "2.29.5",
+    "npm-run-all": "4.1.5",
     "turbo": "2.5.4"
   }
 }
