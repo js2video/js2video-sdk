@@ -40,13 +40,13 @@ function setup({ gsap, timeline, container, params }) {
   const stopObserveParentSize = observeParentSize(
     container,
     ({ width, height }) => {
-      if (isPuppeteer) return;
-
+      if (isPuppeteer) {
+        return;
+      }
       const { offsetWidth: cw, offsetHeight: ch } = container;
       const scale = scaleToFit(cw, ch, width, height);
       const [w, h] = [cw * scale, ch * scale];
       const [tx, ty] = [(width - w) / 2, (height - h) / 2];
-
       Object.assign(container.style, {
         transformOrigin: "top left",
         transform: `translate(${tx}px, ${ty}px) scale(${scale})`,
@@ -55,42 +55,35 @@ function setup({ gsap, timeline, container, params }) {
   );
 
   window.exportVideo = async () => {
-    let result;
-    if (isPuppeteer) {
+    let result, prevTransform, prevTransformOrigin;
+    try {
+      if (!isPuppeteer) {
+        // store current transform styles
+        prevTransform = container.style.transform;
+        prevTransformOrigin = container.style.transformOrigin;
+        // clear transforms
+        container.style.transform = "";
+        container.style.transformOrigin = "";
+      }
       result = await exportVideo({
-        puppeteer: true,
+        puppeteer: isPuppeteer,
         timeline,
         container,
         params,
       });
-    } else {
-      // store current transform styles
-      const prevTransform = container.style.transform;
-      const prevTransformOrigin = container.style.transformOrigin;
-
-      // clear transforms
-      container.style.transform = "";
-      container.style.transformOrigin = "";
-
-      try {
-        result = await exportVideo({
-          puppeteer: false,
-          timeline,
-          container,
-          params,
-        });
-      } catch (err) {
-      } finally {
+    } catch (err) {
+      console.error(err);
+    } finally {
+      if (!isPuppeteer) {
         // restore original transforms
         container.style.transform = prevTransform;
         container.style.transformOrigin = prevTransformOrigin;
       }
-
-      return result;
     }
+    return result;
   };
 
-  // create export function for browser
+  // add event handler for optional html export button
   document
     .getElementById("export")
     ?.addEventListener("click", window.exportVideo);
