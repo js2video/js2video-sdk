@@ -11,7 +11,6 @@ import { scaleToFit } from "./lib/utils";
 async function seek({ time, timeline, container }) {
   console.log(`seek: ${time}`);
   timeline.seek(time);
-  // todo: seek to all elements as well
 }
 
 function setup({ gsap, timeline, container, params }) {
