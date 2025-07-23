@@ -2,6 +2,8 @@ import * as esbuild from "esbuild";
 
 const isDev = process.argv.includes("--watch");
 
+console.log("building. isDev?", isDev);
+
 const ctx = await esbuild.context({
   entryPoints: ["src/index.js"],
   outfile: "dist/index.js",
