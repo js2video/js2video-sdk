@@ -22,7 +22,6 @@
   },
   "devDependencies": {
     "@zumer/snapdom": "1.9.5",
-    "canvas-confetti": "1.9.3",
     "esbuild": "0.25.6",
     "media-codecs": "2.0.2",
     "mp4-muxer": "5.2.2"

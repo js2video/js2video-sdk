@@ -7,7 +7,6 @@ import {
 import { AVC } from "media-codecs";
 import { observeParentSize } from "./lib/observe-parent-size";
 import { scaleToFit } from "./lib/utils";
-import confetti from "canvas-confetti";
 
 async function seek({ time, timeline, container }) {
   console.log(`seek: ${time}`);
@@ -80,7 +79,6 @@ function setup({ gsap, timeline, container, params }) {
           container,
           params,
         });
-        confetti();
       } catch (err) {
       } finally {
         // restore original transforms

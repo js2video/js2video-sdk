@@ -38,9 +38,6 @@ importers:
       '@zumer/snapdom':
         specifier: 1.9.5
         version: 1.9.5
-      canvas-confetti:
-        specifier: 1.9.3
-        version: 1.9.3
       esbuild:
         specifier: 0.25.6
         version: 0.25.6
@@ -638,9 +635,6 @@ packages:
   callsites@3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
     engines: {node: '>=6'}
-
-  canvas-confetti@1.9.3:
-    resolution: {integrity: sha512-rFfTURMvmVEX1gyXFgn5QMn81bYk70qa0HLzcIOSVEyl57n6o9ItHeBtUSWdvKAPY0xlvBHno4/v3QPrT83q9g==}
 
   chardet@0.7.0:
     resolution: {integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==}
@@ -2096,8 +2090,6 @@ snapshots:
       wrench: 1.3.9
 
   callsites@3.1.0: {}
-
-  canvas-confetti@1.9.3: {}
 
   chardet@0.7.0: {}
 
